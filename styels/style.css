@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: auto;
+}
+
+.container--big {
+  max-width: 976px;
+}
