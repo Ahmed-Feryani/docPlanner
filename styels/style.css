@@ -1,22 +1,509 @@
 html {
   font-size: 62.5%;
+  font-family: "Roboto", "Work Sans", sans-serif;
 }
-
+::selection {
+  background: #00b39b;
+  color: #fff;
+  text-shadow: none;
+}
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 ul {
   list-style: none;
 }
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+@keyframes slide {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.heading-one {
+  font-size: 3.4rem;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: #00b39b;
+}
+
+.heading-tow {
+  font-size: 2.6rem;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+.heading-three {
+  font-size: 2.4rem;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 3.12rem;
+  color: #00b39b;
+  letter-spacing: -0.3px;
+}
+
+.heading-four {
+  font-family: "Work Sans", Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  line-height: 3.9rem;
+}
 
 .container {
   margin: auto;
+  padding: 0 2rem;
+  position: relative;
 }
 
 .container--big {
-  max-width: 976px;
+  max-width: 1014px;
+}
+
+.header {
+  box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 15%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+}
+
+.header__inner {
+  height: 6.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-item:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.navigation-link {
+  color: #ababab;
+  transition: all 0.3s;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.navigation-link:hover {
+  color: #00b39b;
+}
+
+.navigation-list {
+  display: flex;
+}
+
+.logo img {
+  width: 26.8rem;
+  height: 3.3rem;
+}
+
+.hero {
+  margin-top: 11.8rem;
+}
+
+.hero__img,
+.hero__title {
+  text-align: center;
+}
+
+.hero__title {
+  margin-top: 3rem;
+  margin-bottom: 6.4rem;
+}
+
+.hero__desc {
+  display: flex;
+  margin: 0 -1.5rem;
+}
+
+.hero__para {
+  width: 50%;
+  line-height: 1.75;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #747474;
+  margin: 0 1.5rem;
+}
+
+.services {
+  display: flex;
+  margin: 10rem -1.1rem 0 -1.1rem;
+}
+
+.service-card {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10%);
+  width: 33.333%;
+  height: 34.6rem;
+  color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  transition: all 0.2s ease 0s;
+  margin: 0 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation-name: slide;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.service-card--patients {
+  animation-delay: 0s;
+  background: #00ccb1;
+}
+.service-card--doctors {
+  animation-delay: 0.3s;
+  background: #3d83df;
+}
+.service-card--clinics {
+  animation-delay: 0.6s;
+  background: #1b2734;
+}
+
+.service-card__action {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(50%);
+  animation-name: slideRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.service-card__body {
+  transform: translateX(50%);
+  animation-name: slideRight;
+  animation-duration: 0.5s;
+  animation-name: slideRight;
+
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.service-card__body--patients,
+.service-card__action--patients {
+  animation-delay: 0s;
+}
+
+.service-card__body--doctors,
+.service-card__action--doctors {
+  animation-delay: 0.3s;
+}
+
+.service-card__body--clinics,
+.service-card__action--clinics {
+  animation-delay: 0.6s;
+}
+
+.service-card:hover {
+  opacity: 0.9;
+}
+
+.service-card__logo {
+  margin-bottom: 1.4rem;
+}
+.service-card__para {
+  font-size: 2.4rem;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 300;
+  margin-top: 1.3rem;
+  letter-spacing: -0.3px;
+}
+
+.service-card__action select {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  outline: 0;
+  text-transform: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.92rem;
+  padding: 1.1rem 0;
+  display: inline-block;
+}
+
+.service-card__action option {
+  color: #000;
+}
+
+.companies {
+  margin: 6.1rem 0 2rem 0;
+}
+
+.companies__info {
+  display: flex;
+}
+
+.companies__logo-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 66.66%;
+}
+
+.companies__logo {
+  margin: 0 3rem 4.1rem 0;
+}
+
+.companies__logo svg {
+  height: 20px;
+  width: auto;
+  max-width: 100%;
+  transition: all 0.2s ease 0s;
+  fill: hsla(0, 0%, 67%, 0.7);
+  cursor: pointer;
+}
+
+.companies__logo svg:hover {
+  fill: #00b39b;
+}
+
+.companies__title {
+  font-family: "Work Sans", Arial, sans-serif;
+  color: #00b39b;
+  line-height: 3.38rem;
+  font-size: 2.6rem;
+  font-weight: 300;
+  width: 33.33%;
+}
+
+.offerings {
+  background: #dff8f7;
+  padding: 2.7rem 0;
+}
+
+.offerings__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offerings__info {
+  width: 50%;
+  margin-top: 7.9rem;
+}
+
+.offerings__cards {
+  width: 50%;
+}
+
+.offerings__para {
+  font-weight: 400;
+  color: #747474;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  max-width: 41.5rem;
+  margin-top: 3rem;
+}
+
+.offerings__cards {
+  display: flex;
+  margin: 0 -1rem;
+}
+
+.offerings-card {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 5%);
+  height: 25rem;
+  text-align: center;
+  padding: 2.2rem 1.5rem;
+  animation-name: slide;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateY(20%);
+}
+
+.offerings-card__para {
+  font-size: 1.3rem;
+  color: #747474;
+  font-weight: 400;
+  line-height: 1.69rem;
+  margin-top: 2rem;
+}
+
+.offerings-card:first-child {
+  margin-bottom: 2rem;
+}
+
+.offerings__cards-g1,
+.offerings__cards-g2 {
+  width: 50%;
+  margin: 0 1rem;
+}
+
+.offerings__cards-g1 {
+  margin-top: 3rem;
+}
+
+.offerings__cards-g1 .offerings-card:first-child {
+  animation-delay: 0;
+}
+
+.offerings__cards-g1 .offerings-card:last-child {
+  animation-delay: 0.6s;
+}
+
+.offerings__cards-g2 .offerings-card:first-child {
+  animation-delay: 0.3s;
+}
+
+.offerings__cards-g2 .offerings-card:last-child {
+  animation-delay: 0.9s;
+}
+
+.offerings-card__logo {
+  margin-bottom: 2rem;
+}
+
+.vision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 9.5rem 0 8.4rem 0;
+}
+
+.vision__inner {
+  text-align: center;
+  max-width: 45.5rem;
+}
+
+.vision__para {
+  color: #747474;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin-top: 3.4rem;
+}
+
+.openings {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+  margin-bottom: 10rem;
+}
+.openings__item {
+  width: 33.33%;
+  padding: 0 1rem;
+  margin-bottom: 2.3rem;
+}
+.openings-card {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  transition: all 0.2s ease 0s;
+}
+
+.openings-card:hover {
+  box-shadow: 0 20px 50px 0 rgb(0 0 0 / 13%);
+}
+
+.openings-card__img,
+.openings-card__img img {
+  width: 100%;
+}
+
+.openings-card__img img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.openings-card__title {
+  color: #747474;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.openings-card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.8rem;
+}
+
+.openings-card__btn {
+  outline: 0;
+  border: 0;
+  border-radius: 0.4rem;
+  background: #3d83df;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease 0s;
+}
+
+.openings-card__btn:hover,
+.join__btn:hover {
+  cursor: pointer;
+  background: #1662c6;
+}
+
+.join {
+  text-align: center;
+}
+
+.join__btn {
+  outline: 0;
+  border: 0;
+  border-radius: 0.4rem;
+  padding: 1.1666666667em 1.5em;
+  background: #3d83df;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.2s ease 0s;
+  padding: 1.4rem 1.8rem;
+  font-size: 1.2rem;
+  margin-top: 2.3rem;
+}
+
+.footer__inner {
+  text-align: center;
+  padding: 3.5rem;
+  border-top: 1px solid #eef2f2;
+  margin-top: 7.8rem;
+}
+.footer__inner p:first-child {
+  margin-bottom: 2rem;
+}
+.footer__inner p {
+  color: #ababab;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.56rem;
 }
